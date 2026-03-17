@@ -69,14 +69,40 @@ function getHumanChoice() {
             invalidResponse();
     }
 
-    // Return the player's choice, when it is one of "Rock" "Paper" or "Scissors"
+    // Return the player's choice, when it is one of "Rock", "Paper" or "Scissors"
     return choice;
 }
 
 // Store computer choice in variable
-let computerChoice;
-computerChoice = getComputerChoice()
+const computerChoice = getComputerChoice()
+console.log(computerChoice)
+
 // Store player's choice in variable
-let humanChoice;
-humanChoice = getHumanChoice();
+const humanChoice = getHumanChoice();
 console.log(humanChoice);
+
+// Create variables for computer and player scores
+let computerScore = 0;
+let humanScore = 0;
+
+// Create variable to count number of rounds played
+let roundsPlayed = 0;
+
+// Write the logic to play a single round
+function playRound(humanInput, computerInput) {
+    if (humanInput === computerInput) {
+        console.log(`You both picked ${humanInput}! It's a tie!`)
+    } else if ((humanInput === "Rock" && computerInput === "Scissors")
+        || (humanInput === "Scissors" && computerInput === "Paper")
+        || (humanInput === "Paper" && computerInput === "Rock")) {
+            console.log(`Your ${humanInput} beats your opponent's ${computerInput}! You win!`);
+            ++humanScore;
+    } else {
+        console.log(`Your opponent's ${computerInput} beats your ${humanInput}! You lose!`);
+        ++computerScore;
+    }
+}
+
+function playGame() {
+}
+// playRound(humanChoice, computerChoice);
