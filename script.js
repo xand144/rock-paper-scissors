@@ -22,19 +22,37 @@ function getHumanChoice() {
         choice = choice.charAt(0).toUpperCase() 
         + choice.slice(1).toLowerCase();
     }
-    normaliseCase()
-    
-    if (choice == false) {
+    let noResponse = () => {
         alert("You failed to provide a response. You do know how Rock Paper Scissors works right?");
         choice = prompt("Invalid. Enter \"Rock\", \"Paper\", or \"Scissors\"");
         normaliseCase();
-        // return choice;
+        if (choice == false) {
+            noResponse();
+        } else if ((choice !== "Rock" 
+            && choice !== "Paper"
+            && choice !== "Scissors")) {
+                invalidResponse()
+        }
+    }
+    let invalidResponse = () => {
+        choice = prompt("Invalid. Enter \"Rock\", \"Paper\", or \"Scissors\"");
+        normaliseCase();
+        if (choice == false) {
+            noResponse();
+        } else if (choice !== "Rock"
+            && choice !== "Paper"
+            && choice !== "Scissors") {
+            invalidResponse();
+        }
+    }
+    normaliseCase()
+    
+    if (choice == false) {
+        noResponse();
     } else if (choice !== "Rock" 
         && choice !== "Paper"
         && choice !== "Scissors") {
-        choice = prompt("Invalid. Enter \"Rock\", \"Paper\", or \"Scissors\"");
-        normaliseCase();
-        // return choice;
+            invalidResponse();
     }
 
     return choice;
