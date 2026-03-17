@@ -22,7 +22,7 @@ function getComputerChoice() {
 // Get the player to choose rock, paper or scissors
 function getHumanChoice() {
     // Get player input and store in variable
-    let choice = prompt("Rock, Paper, or Scissors?");
+    let choice = prompt(`Round ${roundsPlayed}: Rock, Paper, or Scissors?`);
 
     // Capitalises first letter of player input and makes the rest lower case
     let normaliseCase = () => {
@@ -32,8 +32,8 @@ function getHumanChoice() {
 
     // Runs if no response given
     let noResponse = () => {
-        alert("You failed to provide a response. You do know how Rock Paper Scissors works right?");
-        choice = prompt("Invalid. Enter \"Rock\", \"Paper\", or \"Scissors\"");
+        alert(`Round ${roundsPlayed}: You failed to provide a response. You do know how Rock Paper Scissors works right?`);
+        choice = prompt(`Round ${roundsPlayed}: Invalid. Enter \"Rock\", \"Paper\", or \"Scissors\"`);
         normaliseCase();
         if (choice == false) {
             noResponse();
@@ -46,7 +46,7 @@ function getHumanChoice() {
 
     // Runs if response is neither "Rock", "Paper" nor "Scissors"
     let invalidResponse = () => {
-        choice = prompt("Invalid. Enter \"Rock\", \"Paper\", or \"Scissors\"");
+        choice = prompt(`Round ${roundsPlayed}: Invalid. Enter \"Rock\", \"Paper\", or \"Scissors\"`);
         normaliseCase();
         if (choice == false) {
             noResponse();
@@ -93,14 +93,17 @@ function playGame() {
     function playRound(humanInput, computerInput) {
 
         if (humanInput === computerInput) {
-            console.log(`You both picked ${humanInput}! It's a tie!`)
+            console.log(`Round ${roundsPlayed}: You both picked ${humanInput}! It's a tie!`);
+            alert(`Round ${roundsPlayed}: You both picked ${humanInput}! It's a tie!`);
         } else if ((humanInput === "Rock" && computerInput === "Scissors")
             || (humanInput === "Scissors" && computerInput === "Paper")
             || (humanInput === "Paper" && computerInput === "Rock")) {
-                console.log(`Your ${humanInput} beats your opponent's ${computerInput}! You win!`);
+                console.log(`Round ${roundsPlayed}: Your ${humanInput} beats your opponent's ${computerInput}! You win!`);
+                alert(`Round ${roundsPlayed}: Your ${humanInput} beats your opponent's ${computerInput}! You win!`);
                 ++humanScore;
         } else {
-            console.log(`Your opponent's ${computerInput} beats your ${humanInput}! You lose!`);
+            console.log(`Round ${roundsPlayed}: Your opponent's ${computerInput} beats your ${humanInput}! You lose!`);
+            alert(`Round ${roundsPlayed}: Your opponent's ${computerInput} beats your ${humanInput}! You lose!`);
             ++computerScore;
         }
 
@@ -111,11 +114,14 @@ function playGame() {
     ++roundsPlayed;
     if (roundsPlayed > 5) {
         if (humanScore > computerScore) {
-            console.log(`You scored ${humanScore} points and your opponent scored ${computerScore} points. You win the game!`)
+            console.log(`Game Over: You scored ${humanScore} points and your opponent scored ${computerScore} points. You win the game!`);
+            alert(`Game Over: You scored ${humanScore} points and your opponent scored ${computerScore} points. You win the game!`);
         } else if (humanScore < computerScore) {
-            console.log(`You scored ${humanScore} points and your opponent scored ${computerScore} points. Your opponent wins the game!`)
+            console.log(`Game Over: You scored ${humanScore} points and your opponent scored ${computerScore} points. Your opponent wins the game!`);
+            alert(`Game Over: You scored ${humanScore} points and your opponent scored ${computerScore} points. Your opponent wins the game!`);
         } else if (humanScore === computerScore) {
-            console.log(`You both scored ${humanScore} points. It's a tie!`)
+            console.log(`Game Over: You both scored ${humanScore} points. It's a tie!`);
+            alert(`Game Over: You both scored ${humanScore} points. It's a tie!`);
         } else {
             console.log("If you're reading this, you're peeking at my code, because this line cannot run under any circumstances.")
         }
