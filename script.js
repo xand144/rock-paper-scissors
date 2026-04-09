@@ -110,26 +110,26 @@ function playGame() {
         playGame()
     }
 
-    // Increment roundsPlayed once per round until > 5, then declare winner based on scores
-    ++roundsPlayed;
-    if (roundsPlayed > 5) {
-        if (humanScore > computerScore) {
-            console.log(`Game Over: You scored ${humanScore} points and your opponent scored ${computerScore} points. You win the game!`);
-            alert(`Game Over: You scored ${humanScore} points and your opponent scored ${computerScore} points. You win the game!`);
-        } else if (humanScore < computerScore) {
-            console.log(`Game Over: You scored ${humanScore} points and your opponent scored ${computerScore} points. Your opponent wins the game!`);
-            alert(`Game Over: You scored ${humanScore} points and your opponent scored ${computerScore} points. Your opponent wins the game!`);
-        } else if (humanScore === computerScore) {
-            console.log(`Game Over: You both scored ${humanScore} points. It's a tie!`);
-            alert(`Game Over: You both scored ${humanScore} points. It's a tie!`);
-        } else {
-            console.log("If you're reading this, you're peeking at my code, because this line cannot run under any circumstances.")
-        }
-    } else {
-        computerChoice = getComputerChoice();
-        humanChoice = getHumanChoice();
-        playRound(humanChoice, computerChoice);
-    }
+    // // Increment roundsPlayed once per round until > 5, then declare winner based on scores
+    // ++roundsPlayed;
+    // if (roundsPlayed > 5) {
+    //     if (humanScore > computerScore) {
+    //         console.log(`Game Over: You scored ${humanScore} points and your opponent scored ${computerScore} points. You win the game!`);
+    //         alert(`Game Over: You scored ${humanScore} points and your opponent scored ${computerScore} points. You win the game!`);
+    //     } else if (humanScore < computerScore) {
+    //         console.log(`Game Over: You scored ${humanScore} points and your opponent scored ${computerScore} points. Your opponent wins the game!`);
+    //         alert(`Game Over: You scored ${humanScore} points and your opponent scored ${computerScore} points. Your opponent wins the game!`);
+    //     } else if (humanScore === computerScore) {
+    //         console.log(`Game Over: You both scored ${humanScore} points. It's a tie!`);
+    //         alert(`Game Over: You both scored ${humanScore} points. It's a tie!`);
+    //     } else {
+    //         console.log("If you're reading this, you're peeking at my code, because this line cannot run under any circumstances.")
+    //     }
+    // } else {
+    //     computerChoice = getComputerChoice();
+    //     humanChoice = getHumanChoice();
+    //     playRound(humanChoice, computerChoice);
+    // }
 }
 
 playGame()
