@@ -1,22 +1,7 @@
-// Computer randomly chooses "Rock", "Paper" or "Scissors"
 function getComputerChoice() {
-    let randNum = Math.floor(Math.random() * 3);
-
-    // Convert number into corresponding choice
-    switch (randNum) {
-        case 0:
-            return "Rock";
-            break;
-        case 1:
-            return "Paper";
-            break;
-        case 2:
-            return "Scissors";
-            break;
-        // Silly error message; should never run if the code is written correctly
-        default:
-            console.log("oopsie woopsie! we made a fucky wucky!");
-    }
+    const choices = ["Rock", "Paper", "Scissors"];
+    const random = Math.floor(Math.random() * choices.length);
+    return choices[random];
 }
 
 function playRound(humanInput, computerInput) {
@@ -38,11 +23,8 @@ function playRound(humanInput, computerInput) {
     }
 }
 
-let computerChoice;
-
 let computerScore = 0;
 let humanScore = 0;
-
 let roundsPlayed = 0;
 
 const gameInfo = document.querySelector("#container");
