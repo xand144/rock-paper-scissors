@@ -21,13 +21,15 @@ function playRound(humanInput, computerInput) {
 
     function endGame() {
         if (humanScore >= 5) {
-            container.replaceChildren(gameOver, scores);
-            scores.textContent = `Your score: ${humanScore} Opponent score: ${computerScore}`;
+            container.replaceChildren(roundResult, gameOver, scores);
+            roundResult.textContent = `Round ${roundsPlayed}: Your ${humanInput} beats your opponent's ${computerInput}! You win!`;
             gameOver.textContent = "Game Over: You won!";
-        } else if (computerScore >= 5) {
-            container.replaceChildren(gameOver, scores);
             scores.textContent = `Your score: ${humanScore} Opponent score: ${computerScore}`;
+        } else if (computerScore >= 5) {
+            container.replaceChildren(roundResult, gameOver, scores);
+            roundResult.textContent = `Round ${roundsPlayed}: Your opponent's ${computerInput} beats your ${humanInput}! You lose!`;
             gameOver.textContent = "Game Over: You lost!";
+            scores.textContent = `Your score: ${humanScore} Opponent score: ${computerScore}`;
         } else return;
         const playAgain = document.createElement("button");
         playAgain.textContent = "Play again";
